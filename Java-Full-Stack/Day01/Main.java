@@ -21,6 +21,20 @@ public class Main {
 
         AccessDemo ad = new AccessDemo();
         ad.display();
+
+        new Counter();
+        new Counter();
+        System.out.println("Total objects created: " + Counter.count);
+
+        FinalDemo fd = new FinalDemo();
+        fd.show();
+
+        System.out.println("Day: " + Day.MONDAY);
+
+        // Dog dog = new Dog();
+        // dog.sound();
+        Animal animal = new Dog();
+        animal.sound();
     }
 }
 
@@ -105,5 +119,44 @@ class AccessDemo {
     }
 }
 
+// 8. Create a class with a static variable count. Increment it using multiple objects.
+class Counter {
+    static int count = 0;
+    Counter() {
+        count++;
+    }
+}
 
+// 9. eate a class with a final variable and try changing it. Observe error.
+class FinalDemo {
+    final int finalVar = 100;
+    void show() {
+        // finalVar = 200; // This will cause a compile-time error
+        System.out.println("Final Variable: " + finalVar);
+    }
+}
 
+// 10. Create an enum Day and print any one value.
+enum Day {
+    SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
+}
+
+// 11. Create an abstract class Animal with method sound(). Create subclass Dog and implement it.
+abstract class Animal { //Parent class
+    abstract void sound();
+}
+class Dog extends Animal { //Child class
+    void sound() {
+        System.out.println("Woof");
+    }
+}
+
+// 12. Create an interface Shape with method draw().Implement it in class Circle.
+interface Shape {
+    void draw();
+}
+class Circle implements Shape {
+    public void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
